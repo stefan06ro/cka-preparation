@@ -48,3 +48,49 @@
 - You can also use sudo systemctl start/stop/restart [App name]
 10) CRONTABS to schedule tasks
 - crontab -e : To save tasks.
+
+## 2. YAML
+1) What is YAML?
+- YAML is not a markup language.
+- YAML is a data serialization language.
+- Common uses : Config files, Storing data
+2) Syntax
+- Spaces, not tabs
+- Indent for structure
+- Dashes(-) for lists
+- Colons(:) for key-value
+- Character support : Printable Unicode. UTF-32 mandatory for JSON compatibility.
+3) YAML Styles
+- Block styles & Flow styles
+- Block styles : Better for humans, less compact
+- Flow stlyes : Extension of JSON, "Folding" long lines of content, Tags and anchors
+4) Mappings
+- Associative arrays, hash tables, key-value pairs, collection
+- Denoted with a colon and a space(: )
+- No duplicate keys
+- Mappings can be nested.
+5) Sequences
+- Lists, arrays, collections
+- Denoted with a dash and a space (- )
+- Sequences cannot be blank, nested with maaping.
+6) Scalars
+- String, numbers, boolean
+- | (vertical bar) : multiple lines
+- > : 여러 줄로 써도 한 줄로 합쳐줌.
+7) Structure
+- Multiple directives/documents in one file.
+- Triple dashes(---) to mark the start of a file.
+- Triple dots(...) to mark the end without closing the datastream.
+8) Comments
+- Define a comment with an octothorpe and whitespace (# )
+- Blank lines function as commented lines.
+9) Tags
+- Used for setting a custom URI, setting local tags, setting a data type.
+- Use the %TAG ! prefix.
+- ! to set a local tag. ex) location: !PHL Philadelphia
+- !! to define datatype. ex) cabinet: !!str 13 instead "13"
+10) Anchors
+- Store and reuse data
+- Anchor names can be reused.
+- Define anchor with &.
+- Reference anchor data with *.
