@@ -94,3 +94,29 @@
 - Anchor names can be reused.
 - Define anchor with &.
 - Reference anchor data with *.
+
+## 3. Docker
+1) Why we use Docker?
+- Conatinerize applications.
+- Containers : Make them have own processes, network, mounts but share same OS Kernel.
+- Containers vs VMs
+- Container : HW -> OS -> Docker -> Container(Libs + Apps)
+- VM : HW -> Hypervisor -> Virtual Machine(Each OS + Libs + Apps)
+- VM is much heavier in Size, Utilization, Boot up time.
+- VM은 Isolation 크므로 아예 다른 OS의 App 동시에 올릴 수 있음.
+- VM과 Conatiner 동시에 쓸 수도 있음. HW -> Hypervisor -> VM(Each OS -> Docker -> Container)
+2) Container vs Image
+- Image : Things to create container
+- Container : Created by Image
+3) Docker commands
+- docker ps : list containers, docker ps -a
+- docker stop "NAMES"
+- docker rm "NAMES"
+- docker images
+- docker rmi "Image"
+- docker run "image" : Download & Run
+- docker pull "image" : Only Download
+- Container lives only as process inside is alive!
+- docker run ubuntu하면 그래서 바로 container 죽는다. 안에 아무 process 없으니까.
+- docker exec
+- docker run -d : Background에서 돌게 만듬. / docker attach "ID 중 일부" 
