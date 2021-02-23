@@ -120,3 +120,33 @@
 - docker run ubuntu하면 그래서 바로 container 죽는다. 안에 아무 process 없으니까.
 - docker exec
 - docker run -d : Background에서 돌게 만듬. / docker attach "ID 중 일부" 
+4) RUN
+- docker run redis:4.0 : This is TAG!
+- TAG 설정 안 하면 latest.
+- Input 넣고 싶으면 -it를 써서 interactive + terminal mode로 실행해야 함. ex) docker run -it kodekloud/simple-prompt-docker
+- PORT mapping: docker run -p 80:5000 kodekoloud/simple-webapp
+- Volume mapping: docker run -v /opt/datadir:/var/lib/mysql mysql 이렇게 해서 Data 옮김
+- Inspect Container: docker inspect "container name"
+- Container logs: docker logs "container name"
+5) Environment variables
+- ENV Variables in Docker: docker run -e APP_COLOR=blue simple-webapp-color
+- Inspect Environment Variable: docker inspect "container name"
+6) Images
+- Dockerfile: Instruction / Argument
+- Layered architecture
+7) CMD vs ENTRYPOINT
+- CMD는 정해진 그대로 실행됨.
+- ENTRYPOINT는 실행될 명령어만 들고 있음. 실행 라인에서 받아들인 variable이랑 결합되어서 실행됨. ENTRYPOINT 밑에 CMD로 변수 넣어주면 Default값 됨.
+8) Networking
+- Default networks : bridge, host, none
+- Inspect network: docker inspect "container name"
+- Embedded DNS
+9) Storage
+- File system
+- Cache 써서 중복된 Layered architecture 설치 x
+- Image layer에 file 넣으면 read only. Container layer에 넣으면 Read/Write
+- COPY-ON-WRITE : Image에 있는 것은 같지만 얘를 Container Layer로 복사해와서 Read & Write
+- Volume mount vs Bind mount
+- ex) docker run --mount type=bind, source=/data/mysql, target=/var/lib/mysql mysql
+10) Compose
+- 
