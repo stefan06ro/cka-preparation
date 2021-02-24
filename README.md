@@ -149,4 +149,13 @@
 - Volume mount vs Bind mount
 - ex) docker run --mount type=bind, source=/data/mysql, target=/var/lib/mysql mysql
 10) Compose
-- 
+- With yaml file, we can create config file. Running multiple services.
+- docker-compose up
+- Why we make name on container? -> To link!
+11) Registry
+- docker login "private registry" before pulling private registry
+- How to deploy private registry?: docker run -d -p 5000:5000 --name registry registry:2 / docker image tag my-image localhost:5000/my-image / docker push localhost:5000/my-image
+12) Engine
+- Docker Engine = Docker Deamon + REST API + Docker CLI. Docker CLI can be on different host(ex. laptop)
+- Conatinerization : Namespace isolation
+- cgroups
