@@ -199,3 +199,6 @@
   - Scheduler : Load balancing
   - Controller manager : Detects cluster state changes
   - etcd : Cluster brain. Key-value storing. Cluster changes get stored in the key value store. Application data is not stored in etcd!
+4) Kubectl
+- Create : We don't create pod directly. We usually create Deployment. replicaset is auto-created.
+- 
