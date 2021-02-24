@@ -159,3 +159,43 @@
 - Docker Engine = Docker Deamon + REST API + Docker CLI. Docker CLI can be on different host(ex. laptop)
 - Conatinerization : Namespace isolation
 - cgroups
+
+## 4. Kubernetes Basics
+1) What is Kubernetes?
+- Container orchestration tool
+- Increased usage of containers due to Microservices -> proper way of managing containers
+- Offers High availability, Scalability, Disaster recovery
+2) Kubernetes Components
+- 1. Node and Pod 
+  - Node : Simple server
+  - Pod : Smallest unit of K8s. Abstraction over container. You only interact with the Kubernetes layer. Usually 1 application per Pod. Each Pod gets its own IP. When Pod dies, new one get created and new IP address on re-creation.
+- 2. Service and Ingress
+  - Service : Permanent IP address. Lifecycle of Pod and Service Not connected. (Pod 죽어도 Service 그대로)
+  - Ingress : Forward them to service. (DNS 처럼 동작)
+- 3. ConfigMap and Secret
+  - Database URL usually in the built application. RE-build -> push it to repo -> pull it to your pod. This is bad.
+  - ConfigMap : External config of your application. Don't put credentials into ConfigMap.
+  - Secret : Similar to ConfigMap. Used to store secret data. base64 encoded.
+- 4. Volumes
+  - If DB restarts, data is gone. So use Volumes.
+  - It can be storage on local machine, or remote, outside of the K8s cluster.
+  - K8s doesn't manage data persistance!
+- 5. Deployment and stateful set
+  - We replicate everything on multiple nodes and connected to Services(Permanent IP)
+  - Deployment: Blueprints for pods. Abstraction of Pods.
+  - But DB can't be replicated via Deployment! Avoiding Data incompetencies.
+  - StatefulSet : for STATEFUL apps (주로 DB)
+  - DB are often hosted outside of K8s cluster.
+3) Kubernetes Architecture
+- 1. Node process
+  - each Node has multiple Pods on it.
+  - 3 processes must be installed on every Node. (Container runtime, Kubelet, Kube proxy)
+  - Worker Nodes do the actual work.
+  - Kubelet interacts with both the container and node. Kubelet starts the pod with a container inside.
+  - Kube Proxy, Communication via Services
+- 2. Master processes
+  - 4 processes run on every master node. (API server, Scheduler, Controller manager, etcd)
+  - API server : cluster gateway. Acts as a gatekeeper for authentication.
+  - Scheduler : Load balancing
+  - Controller manager : Detects cluster state changes
+  - etcd : Cluster brain. Key-value storing. Cluster changes get stored in the key value store. Application data is not stored in etcd!
