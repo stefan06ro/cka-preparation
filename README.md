@@ -229,3 +229,9 @@
 - Pod identity : Deployment는 random hash, StatefulSet는 정해진 순서대로.
 - Container is not good for stateful apps.
 
+10) Services
+- Stable IP address, loadbalancing
+- ClusterIP Services : default type. 
+- Headless Services : Pods want to talk directly with specific Pod
+- NodePort Services
+- LoadBalancer Services
