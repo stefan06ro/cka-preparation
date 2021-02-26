@@ -201,4 +201,23 @@
   - etcd : Cluster brain. Key-value storing. Cluster changes get stored in the key value store. Application data is not stored in etcd!
 4) Kubectl
 - Create : We don't create pod directly. We usually create Deployment. replicaset is auto-created.
-- 
+
+5) Namespace
+- Virtual cluster inside cluster
+- 4 namespaces for default
+- kube-system / kube-public / kube-node-lease / default
+- Why to use namespace? : Resources grouped in Namespaces. Many teams, same application. Resource sharing. 
+- You can't access most resources from another Namespace.
+- Components, which can't be created within a Namespace. (Live globally in a cluster)
+
+6) Kubernetes Ingress
+- External request -> Ingress -> Internal Service -> Pod
+- Ingress controller : evaluate all rules, manage redirections, entrypoint to cluster
+
+7) Helm
+- Package manager for K8s. (To package yaml file)
+- Helm charts : Bundle of YAML files.
+- Templating engine of similar microservices.
+
+8) Volumes
+- Persistent volume
