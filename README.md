@@ -221,3 +221,11 @@
 
 8) Volumes
 - Persistent volume
+
+9) StatefulSet
+- Tracks state. (cf) stateless : do not keep record of state. each request is completely new
+- stateless app : deployed using Deployment. stateful app : deployed using StatefulSet
+- Stateful app has Pod Identity. Difficult to deploy. Same specification but not interchangeable.
+- Pod identity : Deployment는 random hash, StatefulSet는 정해진 순서대로.
+- Container is not good for stateful apps.
+
