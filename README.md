@@ -8,6 +8,7 @@
 - ls / ls -l (long) / ls -r (reverse) / ls -s (KB size)
 - rm
 - mkdir
+- :%s/\t/[원하는 공백 크기]/g
 2) Administrative privileges in terminal
 - sudo (superuser do)
 - !! (Do previous command)
